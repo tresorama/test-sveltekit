@@ -2,6 +2,9 @@
 	"name": "test-svelte",
 	"version": "0.0.1",
 	"private": true,
+	"prisma": {
+		"seed": "vite-node prisma/seed.ts"
+	},
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
@@ -11,7 +14,9 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"lint": "eslint .",
 		"test:integration": "playwright test",
-		"test:unit": "vitest"
+		"test:unit": "vitest",
+		"db:dev:seed": "vite-node prisma/seed.ts",
+		"db:dev:studio": "prisma studio"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.28.1",
@@ -23,6 +28,7 @@
 		"@typescript-eslint/parser": "^6.0.0",
 		"eslint": "^8.56.0",
 		"eslint-plugin-svelte": "^2.35.1",
+		"sass": "^1.69.7",
 		"svelte": "^4.2.7",
 		"svelte-check": "^3.6.0",
 		"tslib": "^2.4.1",
@@ -30,5 +36,10 @@
 		"vite": "^5.0.3",
 		"vitest": "^1.0.0"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"@prisma/client": "^5.7.1",
+		"accept-language-parser": "^1.5.0",
+		"prisma": "^5.7.1"
+	}
 }
