@@ -8,6 +8,9 @@
         <li>
           <a href="/form/form-js-use-enhance">Form - JS with use:enhance</a>
         </li>
+        <li>
+          <a href="/form/form-js-only">Form - JS only</a>
+        </li>
       </ul>
     </nav>
   </aside>
@@ -20,7 +23,7 @@
   .wrapper {
     display: grid;
     gap: 1rem;
-    grid-template-columns: 30vw minmax(0,1fr);
+    grid-template-columns: 30vw minmax(0, 1fr);
   }
   .sidebar {
     background-color: hsla(0, 0%, 0%, 0.358);
@@ -49,5 +52,4 @@
     display: flex;
     flex-direction: column;
   }
-
 </style>

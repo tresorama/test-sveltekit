@@ -4,7 +4,7 @@ import { defaultLocale, getLocaleFromRequest, pathnameHasLocale } from "./i18n.u
 
 export const handleInternalization: Handle = ({ event, resolve }) => {
 
-  console.log({ what: "hooks.server - handleInternalization", pathname: event.url.pathname });
+  console.log({ what: "hooks.server - handleInternalization" });
 
   // if request is for a route that is multilingual...
   // and if user has a language preference for which we have a translation
