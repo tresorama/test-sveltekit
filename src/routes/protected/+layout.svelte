@@ -1,30 +1,31 @@
 <script lang="ts">
-  import { signIn, signOut } from "@auth/sveltekit/client";
   import { page } from "$app/stores";
-
-  // we can acces page.data because of "+page.server.ts"
-  $: session = $page.data.session;
+  import { enhance } from "$app/forms";
 </script>
 
 <section class="account-bar">
-  {#if $page.data.session}
-    {#if $page.data.session.user?.image}
+  {#if $page.data.user}
+    <!-- User Info -->
+    {#if $page.data.user?.image}
       <span
-        style="background-image: url('{$page.data.session.user.image}')"
+        style="background-image: url('{$page.data.user.image}')"
         class="avatar"
       />
     {/if}
     <div>
       <span>
         <small>Signed in as</small><br />
-        <strong>{$page.data.session.user?.name ?? "User"}</strong>
+        <strong>{$page.data.user?.github_username ?? "User"}</strong>
       </span>
     </div>
-    <button on:click={() => signOut()} class="button">Sign out</button>
+    <!-- Logout -->
+    <form method="post" action="/auth/logout" use:enhance>
+      <button>Sign out</button>
+    </form>
   {:else}
     <div>
       <span>You are not signed in</span>
-      <button on:click={() => signIn("")}>Sign In</button>
+      <a href="/login">Login</a>
     </div>
   {/if}
 </section>

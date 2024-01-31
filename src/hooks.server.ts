@@ -1,7 +1,7 @@
 import { type Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
 import { handleInternalization } from '$lib/i18n/i18n.middleware';
-import { handleAuthInit, handleAuthorization } from '$lib/auth/auth.middleware';
+import { handleAuth, handleAuthorization } from '$lib/auth/auth.middleware';
 
 const handleLogging: Handle = ({ event, resolve }) => {
   console.log("");
@@ -19,7 +19,7 @@ const handleLogging: Handle = ({ event, resolve }) => {
 export const handle = sequence(
   handleLogging,
   handleInternalization,
-  handleAuthInit,
+  handleAuth,
   handleAuthorization,
 );
 

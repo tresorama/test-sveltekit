@@ -15,7 +15,8 @@
 		"lint": "eslint .",
 		"test:integration": "playwright test",
 		"test:unit": "vitest",
-		"db:dev:seed": "vite-node prisma/seed.ts",
+		"db:dev:reset": "prisma migrate reset",
+		"db:dev:seed": "prisma db seed",
 		"db:dev:studio": "prisma studio"
 	},
 	"devDependencies": {
@@ -38,9 +39,12 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@auth/sveltekit": "^0.10.0",
+		"@lucia-auth/adapter-prisma": "^4.0.0",
 		"@prisma/client": "^5.7.1",
 		"accept-language-parser": "^1.5.0",
+		"arctic": "^1.1.0",
+		"lucia": "^3.0.1",
+		"oslo": "^1.0.3",
 		"prisma": "^5.7.1"
 	}
 }
